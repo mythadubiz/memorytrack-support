@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MemoryTrack – Support</title>
+  <meta name="description" content="Support page for MemoryTrack – Never Forget What Matters." />
+  <style>
+    :root {
+      --accent:   #5B7BFF;
+      --accent2:  #9B59B6;
+      --bg:       #f5f5f7;
+      --card:     #ffffff;
+      --text:     #1d1d1f;
+      --muted:    #6e6e73;
+      --border:   #e0e0e5;
+      --radius:   18px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:    #1c1c1e;
+        --card:  #2c2c2e;
+        --text:  #f5f5f7;
+        --muted: #98989d;
+        --border:#3a3a3c;
+      }
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── LANG SWITCH ── */
+    #lang-bar {
+      text-align: right;
+      padding: 12px 24px;
+      font-size: 13px;
+    }
+    #lang-bar button {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 4px 14px;
+      cursor: pointer;
+      font-size: 13px;
+      color: var(--muted);
+      margin-left: 6px;
+      transition: all .2s;
+    }
+    #lang-bar button.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    /* ── HERO ── */
+    header {
+      background: linear-gradient(135deg, #5B7BFF 0%, #9B59B6 100%);
+      color: #fff;
+      text-align: center;
+      padding: 60px 24px 50px;
+    }
+    .app-icon {
+      width: 96px; height: 96px;
+      border-radius: 22px;
+      background: rgba(255,255,255,.25);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 48px;
+      margin: 0 auto 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,.2);
+    }
+    header h1 { font-size: 2.2rem; font-weight: 700; letter-spacing: -.5px; }
+    header p  { font-size: 1.05rem; opacity: .88; margin-top: 8px; }
+
+    /* ── MAIN LAYOUT ── */
+    main {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+    section { margin-bottom: 44px; }
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── CARDS ── */
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 22px 26px;
+      box-shadow: 0 1px 4px rgba(0,0,0,.06);
+      margin-bottom: 14px;
+    }
+    .card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 6px; }
+    .card p  { font-size: .95rem; color: var(--muted); }
+
+    /* ── FAQ accordion ── */
+    details {
+      background: var(--card);
+      border-radius: var(--radius);
+      margin-bottom: 10px;
+      box-shadow: 0 1px 4px rgba(0,0,0,.06);
+      overflow: hidden;
+    }
+    summary {
+      font-weight: 600;
+      font-size: .97rem;
+      padding: 18px 22px;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    summary::after { content: "+"; font-size: 1.3rem; color: var(--accent); transition: transform .2s; }
+    details[open] summary::after { transform: rotate(45deg); }
+    details p {
+      padding: 0 22px 18px;
+      font-size: .93rem;
+      color: var(--muted);
+    }
+
+    /* ── CONTACT ── */
+    .contact-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #5B7BFF 0%, #9B59B6 100%);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 50px;
+      padding: 14px 36px;
+      font-weight: 600;
+      font-size: 1rem;
+      margin-top: 10px;
+      transition: opacity .2s;
+    }
+    .contact-btn:hover { opacity: .85; }
+
+    /* ── PRIVACY ── */
+    .privacy-block {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 24px 26px;
+      font-size: .9rem;
+      color: var(--muted);
+      box-shadow: 0 1px 4px rgba(0,0,0,.06);
+    }
+    .privacy-block h3 { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 10px; }
+    .privacy-block ul { padding-left: 18px; }
+    .privacy-block li { margin-bottom: 6px; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      font-size: .82rem;
+      color: var(--muted);
+      padding: 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── i18n helpers ── */
+    [data-lang] { display: none; }
+    [data-lang].visible { display: block; }
+    span[data-lang] { display: none; }
+    span[data-lang].visible { display: inline; }
+  </style>
+</head>
+<body>
+
+<!-- Language bar -->
+<div id="lang-bar">
+  <button onclick="setLang('en')" id="btn-en" class="active">🇺🇸 EN</button>
+  <button onclick="setLang('fr')" id="btn-fr">🇫🇷 FR</button>
+</div>
+
+<!-- Hero -->
+<header>
+  <div class="app-icon">🧠</div>
+  <h1>MemoryTrack</h1>
+  <p>
+    <span data-lang="en" class="visible">Never Forget What Matters</span>
+    <span data-lang="fr">Ne laissez rien s'effacer</span>
+  </p>
+</header>
+
+<main>
+
+  <!-- ── FEATURES ── -->
+  <section>
+    <h2>
+      <span data-lang="en" class="visible">✨ Key Features</span>
+      <span data-lang="fr">✨ Fonctionnalités</span>
+    </h2>
+
+    <div class="card">
+      <h3>📅 <span data-lang="en" class="visible">Events & Memories</span><span data-lang="fr">Événements & Souvenirs</span></h3>
+      <p>
+        <span data-lang="en" class="visible">Create memories for any event — birthdays, trips, milestones — with a date, category and custom emoji icon.</span>
+        <span data-lang="fr">Créez des mémorisations pour chaque événement — anniversaires, voyages, jalons — avec date, catégorie et icône emoji personnalisée.</span>
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🔔 <span data-lang="en" class="visible">Smart Reminders</span><span data-lang="fr">Rappels intelligents</span></h3>
+      <p>
+        <span data-lang="en" class="visible">Get notified days before, the day before, or on the day itself. Fully customizable per memory.</span>
+        <span data-lang="fr">Recevez une notification plusieurs jours avant, la veille ou le jour J. Entièrement personnalisable par souvenir.</span>
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>☁️ <span data-lang="en" class="visible">iCloud Sync</span><span data-lang="fr">Synchronisation iCloud</span></h3>
+      <p>
+        <span data-lang="en" class="visible">All your data syncs automatically across iPhone and iPad via your private iCloud. No account needed.</span>
+        <span data-lang="fr">Toutes vos données se synchronisent automatiquement sur iPhone et iPad via votre iCloud privé. Aucun compte requis.</span>
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🗂️ <span data-lang="en" class="visible">Custom Categories</span><span data-lang="fr">Catégories personnalisées</span></h3>
+      <p>
+        <span data-lang="en" class="visible">Built-in categories (birthdays, travel, health…) plus unlimited custom ones with your own emoji icons.</span>
+        <span data-lang="fr">Catégories intégrées (anniversaires, voyages, santé…) et catégories personnalisées illimitées avec vos propres emojis.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ── FAQ ── -->
+  <section>
+    <h2>
+      <span data-lang="en" class="visible">❓ Frequently Asked Questions</span>
+      <span data-lang="fr">❓ Questions fréquentes</span>
+    </h2>
+
+    <!-- EN FAQs -->
+    <div data-lang="en" class="visible">
+      <details>
+        <summary>How do I enable notifications?</summary>
+        <p>Open MemoryTrack → go to a memory → tap the Reminders section and toggle it on. If the system prompt didn't appear, go to iPhone Settings → MemoryTrack → Notifications and enable them there.</p>
+      </details>
+      <details>
+        <summary>My categories are showing duplicates — how do I fix it?</summary>
+        <p>This can happen after an iCloud sync. Simply restart the app — MemoryTrack automatically detects and removes duplicate system categories on launch.</p>
+      </details>
+      <details>
+        <summary>Is my data private?</summary>
+        <p>Yes. All your memories are stored exclusively in your private iCloud database. We never collect, transmit or have access to your data.</p>
+      </details>
+      <details>
+        <summary>Does MemoryTrack work on iPad?</summary>
+        <p>Yes! MemoryTrack runs natively on iPhone and iPad, and syncs data between both devices automatically via iCloud.</p>
+      </details>
+      <details>
+        <summary>What languages are supported?</summary>
+        <p>MemoryTrack is available in 17 languages: English, French, German, Spanish, Italian, Portuguese, Dutch, Polish, Russian, Turkish, Hindi, Thai, Vietnamese, Tagalog, Japanese, Korean and Simplified Chinese.</p>
+      </details>
+      <details>
+        <summary>How do I change the app language?</summary>
+        <p>Go to MemoryTrack → Settings (gear icon) → Language, then choose your preferred language from the list.</p>
+      </details>
+      <details>
+        <summary>I deleted a memory by mistake. Can I recover it?</summary>
+        <p>Unfortunately, deleted memories cannot be recovered at this time. A future update may include a Trash / Recently Deleted feature.</p>
+      </details>
+    </div>
+
+    <!-- FR FAQs -->
+    <div data-lang="fr">
+      <details>
+        <summary>Comment activer les notifications ?</summary>
+        <p>Ouvrez MemoryTrack → accédez à un souvenir → appuyez sur la section Rappels et activez la bascule. Si la demande d'autorisation n'est pas apparue, allez dans Réglages iPhone → MemoryTrack → Notifications et activez-les.</p>
+      </details>
+      <details>
+        <summary>Mes catégories apparaissent en double — comment corriger ça ?</summary>
+        <p>Cela peut arriver après une synchronisation iCloud. Relancez simplement l'application — MemoryTrack détecte et supprime automatiquement les doublons au démarrage.</p>
+      </details>
+      <details>
+        <summary>Mes données sont-elles privées ?</summary>
+        <p>Oui. Tous vos souvenirs sont stockés exclusivement dans votre base iCloud privée. Nous ne collectons, ne transmettons ni n'avons accès à vos données.</p>
+      </details>
+      <details>
+        <summary>MemoryTrack fonctionne-t-il sur iPad ?</summary>
+        <p>Oui ! MemoryTrack fonctionne nativement sur iPhone et iPad, et synchronise vos données entre les deux appareils automatiquement via iCloud.</p>
+      </details>
+      <details>
+        <summary>Quelles langues sont disponibles ?</summary>
+        <p>MemoryTrack est disponible en 17 langues : français, anglais, allemand, espagnol, italien, portugais, néerlandais, polonais, russe, turc, hindi, thaï, vietnamien, tagalog, japonais, coréen et chinois simplifié.</p>
+      </details>
+      <details>
+        <summary>Comment changer la langue de l'application ?</summary>
+        <p>Allez dans MemoryTrack → Paramètres (icône engrenage) → Langue, puis choisissez votre langue dans la liste.</p>
+      </details>
+      <details>
+        <summary>J'ai supprimé un souvenir par erreur. Puis-je le récupérer ?</summary>
+        <p>Malheureusement, les souvenirs supprimés ne peuvent pas être récupérés pour l'instant. Une future mise à jour pourrait inclure une corbeille / suppressions récentes.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section>
+    <h2>
+      <span data-lang="en" class="visible">📬 Contact Support</span>
+      <span data-lang="fr">📬 Contacter le support</span>
+    </h2>
+    <div class="card">
+      <p>
+        <span data-lang="en" class="visible">Having an issue not covered above? We're here to help. Send us an email and we'll get back to you within 48 hours.</span>
+        <span data-lang="fr">Vous avez un problème non couvert ci-dessus ? Nous sommes là pour vous aider. Envoyez-nous un e-mail et nous vous répondrons sous 48 heures.</span>
+      </p>
+      <a class="contact-btn" href="mailto:support@memorytrack.app">
+        <span data-lang="en" class="visible">✉️ Email Support</span>
+        <span data-lang="fr">✉️ Envoyer un e-mail</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ── PRIVACY ── -->
+  <section>
+    <h2>
+      <span data-lang="en" class="visible">🔐 Privacy Policy</span>
+      <span data-lang="fr">🔐 Politique de confidentialité</span>
+    </h2>
+    <div class="privacy-block">
+      <h3>
+        <span data-lang="en" class="visible">Your privacy is our priority.</span>
+        <span data-lang="fr">Votre vie privée est notre priorité.</span>
+      </h3>
+      <div data-lang="en" class="visible">
+        <ul>
+          <li><strong>No account required.</strong> MemoryTrack does not require registration or login of any kind.</li>
+          <li><strong>No data collection.</strong> We do not collect, store or sell any personal data on external servers.</li>
+          <li><strong>iCloud only.</strong> Your memories are stored exclusively in your private Apple iCloud database, governed by Apple's Privacy Policy.</li>
+          <li><strong>Notifications.</strong> Notification permission is optional and only used to deliver your personal reminders.</li>
+          <li><strong>No third-party SDKs.</strong> MemoryTrack contains no analytics, advertising or tracking libraries.</li>
+        </ul>
+      </div>
+      <div data-lang="fr">
+        <ul>
+          <li><strong>Aucun compte requis.</strong> MemoryTrack ne nécessite aucune inscription ni connexion.</li>
+          <li><strong>Aucune collecte de données.</strong> Nous ne collectons, ne stockons ni ne vendons de données personnelles sur des serveurs externes.</li>
+          <li><strong>iCloud uniquement.</strong> Vos souvenirs sont stockés exclusivement dans votre base de données iCloud privée Apple, régie par la politique de confidentialité d'Apple.</li>
+          <li><strong>Notifications.</strong> L'autorisation de notification est facultative et utilisée uniquement pour vous envoyer vos rappels personnels.</li>
+          <li><strong>Aucun SDK tiers.</strong> MemoryTrack ne contient aucune bibliothèque d'analyse, de publicité ou de traçage.</li>
+        </ul>
+      </div>
+      <p style="margin-top: 14px;">
+        <span data-lang="en" class="visible">Last updated: March 2026</span>
+        <span data-lang="fr">Dernière mise à jour : mars 2026</span>
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 MemoryTrack ·
+  <span data-lang="en" class="visible">Made with ♥ for iPhone &amp; iPad</span>
+  <span data-lang="fr">Fait avec ♥ pour iPhone &amp; iPad</span>
+</footer>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      el.classList.toggle('visible', el.dataset.lang === lang);
+    });
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+    document.documentElement.lang = lang;
+  }
+
+  // Auto-detect browser language on load
+  const browserLang = navigator.language.startsWith('fr') ? 'fr' : 'en';
+  setLang(browserLang);
+</script>
+</body>
+</html>
