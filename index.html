@@ -155,6 +155,66 @@
     .privacy-block ul { padding-left: 18px; }
     .privacy-block li { margin-bottom: 6px; }
 
+    /* ── PRIVACY COMMITMENT ── */
+    .commit-banner {
+      background: linear-gradient(135deg, #5B7BFF 0%, #9B59B6 100%);
+      border-radius: var(--radius);
+      padding: 28px 26px;
+      color: #fff;
+      text-align: center;
+      margin-bottom: 14px;
+    }
+    .commit-banner .shield { font-size: 2.6rem; margin-bottom: 10px; }
+    .commit-banner h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 6px; }
+    .commit-banner p  { font-size: .93rem; opacity: .88; }
+
+    .commit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    @media (max-width: 540px) { .commit-grid { grid-template-columns: 1fr; } }
+
+    .commit-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,.06);
+      border-left: 3px solid var(--accent);
+    }
+    .commit-card .icon { font-size: 1.5rem; margin-bottom: 8px; }
+    .commit-card h4   { font-size: .95rem; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .commit-card p    { font-size: .85rem; color: var(--muted); line-height: 1.5; }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .88rem;
+      background: var(--card);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,.06);
+      margin-bottom: 14px;
+    }
+    .data-table th {
+      background: var(--accent);
+      color: #fff;
+      padding: 10px 16px;
+      text-align: left;
+      font-weight: 600;
+    }
+    .data-table td {
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      vertical-align: top;
+    }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table td:first-child   { font-weight: 600; color: var(--text); width: 40%; }
+    .badge-no  { color: #22c55e; font-weight: 700; }
+    .badge-yes { color: #f59e0b; font-weight: 700; }
+
     /* ── FOOTER ── */
     footer {
       text-align: center;
@@ -321,33 +381,130 @@
     </div>
   </section>
 
-  <!-- ── PRIVACY ── -->
-  <section>
+  <!-- ── PRIVACY COMMITMENT ── -->
+  <section id="privacy">
     <h2>
-      <span data-lang="en" class="visible">🔐 Privacy Policy</span>
-      <span data-lang="fr">🔐 Politique de confidentialité</span>
+      <span data-lang="en" class="visible">🔐 Privacy Commitment</span>
+      <span data-lang="fr">🔐 Engagement de confidentialité</span>
     </h2>
+
+    <!-- Banner -->
+    <div class="commit-banner">
+      <div class="shield">🛡️</div>
+      <h3>
+        <span data-lang="en" class="visible">Zero data collected. Ever.</span>
+        <span data-lang="fr">Zéro donnée collectée. Jamais.</span>
+      </h3>
+      <p>
+        <span data-lang="en" class="visible">MemoryTrack was built with privacy as a foundation, not an afterthought. Your memories belong to you — and only you.</span>
+        <span data-lang="fr">MemoryTrack a été conçu avec la confidentialité comme fondation, pas comme une réflexion après coup. Vos souvenirs vous appartiennent — et seulement à vous.</span>
+      </p>
+    </div>
+
+    <!-- Commitment cards -->
+    <div class="commit-grid">
+      <div class="commit-card">
+        <div class="icon">🚫</div>
+        <h4><span data-lang="en" class="visible">No Account Required</span><span data-lang="fr">Aucun compte requis</span></h4>
+        <p>
+          <span data-lang="en" class="visible">No sign-up, no email, no password. Use MemoryTrack immediately, anonymously.</span>
+          <span data-lang="fr">Aucune inscription, aucun email, aucun mot de passe. Utilisez MemoryTrack immédiatement et anonymement.</span>
+        </p>
+      </div>
+      <div class="commit-card">
+        <div class="icon">☁️</div>
+        <h4><span data-lang="en" class="visible">iCloud Private Database</span><span data-lang="fr">Base iCloud privée</span></h4>
+        <p>
+          <span data-lang="en" class="visible">All data is stored in your personal iCloud — encrypted, private, and never accessible to us.</span>
+          <span data-lang="fr">Toutes les données sont dans votre iCloud personnel — chiffré, privé, inaccessible pour nous.</span>
+        </p>
+      </div>
+      <div class="commit-card">
+        <div class="icon">📵</div>
+        <h4><span data-lang="en" class="visible">No Tracking or Analytics</span><span data-lang="fr">Aucun traçage ni analytics</span></h4>
+        <p>
+          <span data-lang="en" class="visible">MemoryTrack contains zero third-party SDKs. No analytics, no advertising, no crash reporters.</span>
+          <span data-lang="fr">MemoryTrack ne contient aucun SDK tiers. Zéro analytics, zéro publicité, zéro rapport de crash.</span>
+        </p>
+      </div>
+      <div class="commit-card">
+        <div class="icon">🔕</div>
+        <h4><span data-lang="en" class="visible">Optional Notifications</span><span data-lang="fr">Notifications optionnelles</span></h4>
+        <p>
+          <span data-lang="en" class="visible">Notification access is fully optional. If granted, it is only used to deliver your personal reminders — locally, on-device.</span>
+          <span data-lang="fr">L'accès aux notifications est entièrement facultatif. S'il est accordé, il sert uniquement à envoyer vos rappels personnels — localement, sur l'appareil.</span>
+        </p>
+      </div>
+      <div class="commit-card">
+        <div class="icon">💰</div>
+        <h4><span data-lang="en" class="visible">Your Data Is Never Sold</span><span data-lang="fr">Vos données ne sont jamais vendues</span></h4>
+        <p>
+          <span data-lang="en" class="visible">We have no business model based on your data. MemoryTrack earns revenue only through optional in-app purchases.</span>
+          <span data-lang="fr">Notre modèle économique ne repose pas sur vos données. MemoryTrack génère des revenus uniquement via des achats intégrés optionnels.</span>
+        </p>
+      </div>
+      <div class="commit-card">
+        <div class="icon">🌍</div>
+        <h4><span data-lang="en" class="visible">GDPR Compliant</span><span data-lang="fr">Conformité RGPD</span></h4>
+        <p>
+          <span data-lang="en" class="visible">No personal data is processed on our end. As no data is collected, there is nothing to request, correct or delete.</span>
+          <span data-lang="fr">Aucune donnée personnelle n'est traitée de notre côté. Comme aucune donnée n'est collectée, il n'y a rien à demander, corriger ni supprimer.</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- Data table -->
+    <div data-lang="en" class="visible">
+      <table class="data-table">
+        <thead>
+          <tr><th>Data Type</th><th>Collected?</th><th>Where stored</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Memories &amp; events</td><td class="badge-no">✗ Never</td><td>Your private iCloud only</td></tr>
+          <tr><td>Name / Email</td><td class="badge-no">✗ Never</td><td>Not collected</td></tr>
+          <tr><td>Location</td><td class="badge-no">✗ Never</td><td>Not collected</td></tr>
+          <tr><td>Usage analytics</td><td class="badge-no">✗ Never</td><td>Not collected</td></tr>
+          <tr><td>Crash reports</td><td class="badge-no">✗ Never</td><td>Not collected</td></tr>
+          <tr><td>Notification permission</td><td class="badge-yes">Optional</td><td>On-device only</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div data-lang="fr">
+      <table class="data-table">
+        <thead>
+          <tr><th>Type de donnée</th><th>Collectée ?</th><th>Où stockée</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Souvenirs &amp; événements</td><td class="badge-no">✗ Jamais</td><td>Votre iCloud privé uniquement</td></tr>
+          <tr><td>Nom / Email</td><td class="badge-no">✗ Jamais</td><td>Non collecté</td></tr>
+          <tr><td>Localisation</td><td class="badge-no">✗ Jamais</td><td>Non collectée</td></tr>
+          <tr><td>Analytics d'usage</td><td class="badge-no">✗ Jamais</td><td>Non collectées</td></tr>
+          <tr><td>Rapports de crash</td><td class="badge-no">✗ Jamais</td><td>Non collectés</td></tr>
+          <tr><td>Permission notifications</td><td class="badge-yes">Optionnelle</td><td>Sur l'appareil uniquement</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Legal footer -->
     <div class="privacy-block">
       <h3>
-        <span data-lang="en" class="visible">Your privacy is our priority.</span>
-        <span data-lang="fr">Votre vie privée est notre priorité.</span>
+        <span data-lang="en" class="visible">Privacy Policy</span>
+        <span data-lang="fr">Politique de confidentialité</span>
       </h3>
       <div data-lang="en" class="visible">
         <ul>
-          <li><strong>No account required.</strong> MemoryTrack does not require registration or login of any kind.</li>
-          <li><strong>No data collection.</strong> We do not collect, store or sell any personal data on external servers.</li>
-          <li><strong>iCloud only.</strong> Your memories are stored exclusively in your private Apple iCloud database, governed by Apple's Privacy Policy.</li>
-          <li><strong>Notifications.</strong> Notification permission is optional and only used to deliver your personal reminders.</li>
-          <li><strong>No third-party SDKs.</strong> MemoryTrack contains no analytics, advertising or tracking libraries.</li>
+          <li><strong>Data controller:</strong> The developer of MemoryTrack (individual developer).</li>
+          <li><strong>Data processed:</strong> None on our servers. iCloud data is processed by Apple Inc. under their Privacy Policy.</li>
+          <li><strong>User rights:</strong> As no personal data is collected by us, no access, correction or deletion request applies to our systems.</li>
+          <li><strong>Contact:</strong> For any privacy question, contact us at <a href="mailto:mythadubiz@gmail.com" style="color:var(--accent)">mythadubiz@gmail.com</a>.</li>
         </ul>
       </div>
       <div data-lang="fr">
         <ul>
-          <li><strong>Aucun compte requis.</strong> MemoryTrack ne nécessite aucune inscription ni connexion.</li>
-          <li><strong>Aucune collecte de données.</strong> Nous ne collectons, ne stockons ni ne vendons de données personnelles sur des serveurs externes.</li>
-          <li><strong>iCloud uniquement.</strong> Vos souvenirs sont stockés exclusivement dans votre base de données iCloud privée Apple, régie par la politique de confidentialité d'Apple.</li>
-          <li><strong>Notifications.</strong> L'autorisation de notification est facultative et utilisée uniquement pour vous envoyer vos rappels personnels.</li>
-          <li><strong>Aucun SDK tiers.</strong> MemoryTrack ne contient aucune bibliothèque d'analyse, de publicité ou de traçage.</li>
+          <li><strong>Responsable du traitement :</strong> Le développeur de MemoryTrack (développeur individuel).</li>
+          <li><strong>Données traitées :</strong> Aucune sur nos serveurs. Les données iCloud sont traitées par Apple Inc. conformément à leur politique de confidentialité.</li>
+          <li><strong>Droits des utilisateurs :</strong> Aucune donnée personnelle n'étant collectée par nos soins, aucune demande d'accès, de rectification ou de suppression ne s'applique à nos systèmes.</li>
+          <li><strong>Contact :</strong> Pour toute question relative à la confidentialité, contactez-nous à <a href="mailto:mythadubiz@gmail.com" style="color:var(--accent)">mythadubiz@gmail.com</a>.</li>
         </ul>
       </div>
       <p style="margin-top: 14px;">
