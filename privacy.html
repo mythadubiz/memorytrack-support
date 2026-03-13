@@ -70,6 +70,7 @@
       font-size: .95rem;
       opacity: .85;
       margin-top: 8px;
+      color: inherit;
     }
     .last-updated {
       display: inline-block;
@@ -103,7 +104,9 @@
       margin-bottom: 10px;
       border: none;
       padding: 0;
+      counter-increment: none;
     }
+    .summary-banner h2::before { content: none; }
     .summary-banner ul {
       padding-left: 18px;
       font-size: .92rem;
