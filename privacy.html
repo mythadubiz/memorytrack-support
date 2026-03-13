@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MemoryTrack – Privacy Policy</title>
+  <meta name="description" content="Privacy Policy for MemoryTrack – No data collected, ever." />
+  <style>
+    :root {
+      --accent:  #5B7BFF;
+      --bg:      #f5f5f7;
+      --card:    #ffffff;
+      --text:    #1d1d1f;
+      --muted:   #6e6e73;
+      --border:  #e0e0e5;
+      --radius:  14px;
+      --green:   #22c55e;
+      --amber:   #f59e0b;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:    #1c1c1e;
+        --card:  #2c2c2e;
+        --text:  #f5f5f7;
+        --muted: #98989d;
+        --border:#3a3a3c;
+      }
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    /* ── LANG BAR ── */
+    #lang-bar {
+      text-align: right;
+      padding: 12px 24px;
+    }
+    #lang-bar button {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 4px 14px;
+      cursor: pointer;
+      font-size: 13px;
+      color: var(--muted);
+      margin-left: 6px;
+      transition: all .2s;
+    }
+    #lang-bar button.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: linear-gradient(135deg, #5B7BFF 0%, #9B59B6 100%);
+      color: #fff;
+      text-align: center;
+      padding: 48px 24px 40px;
+    }
+    header .shield { font-size: 3rem; margin-bottom: 12px; }
+    header h1 { font-size: 2rem; font-weight: 700; letter-spacing: -.5px; }
+    header .sub {
+      font-size: .95rem;
+      opacity: .85;
+      margin-top: 8px;
+    }
+    .last-updated {
+      display: inline-block;
+      background: rgba(255,255,255,.2);
+      border-radius: 20px;
+      padding: 4px 16px;
+      font-size: .82rem;
+      margin-top: 14px;
+    }
+
+    /* ── MAIN ── */
+    main {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+
+    /* ── SUMMARY BANNER ── */
+    .summary-banner {
+      background: var(--card);
+      border-radius: var(--radius);
+      border-left: 4px solid var(--green);
+      padding: 20px 24px;
+      margin-bottom: 32px;
+      box-shadow: 0 1px 4px rgba(0,0,0,.06);
+    }
+    .summary-banner h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 10px;
+      border: none;
+      padding: 0;
+    }
+    .summary-banner ul {
+      padding-left: 18px;
+      font-size: .92rem;
+      color: var(--muted);
+    }
+    .summary-banner li { margin-bottom: 4px; }
+    .summary-banner strong { color: var(--text); }
+
+    /* ── SECTIONS ── */
+    section { margin-bottom: 36px; }
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+      counter-increment: section;
+    }
+    h2::before {
+      content: counter(section) ". ";
+      color: var(--accent);
+    }
+    body { counter-reset: section; }
+
+    p { color: var(--muted); margin-bottom: 10px; font-size: .93rem; }
+    p:last-child { margin-bottom: 0; }
+    strong { color: var(--text); }
+
+    /* ── DATA TABLE ── */
+    .data-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: .87rem;
+      background: var(--card);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,.06);
+      margin: 14px 0 0;
+    }
+    .data-table th {
+      background: var(--accent);
+      color: #fff;
+      padding: 10px 16px;
+      text-align: left;
+      font-weight: 600;
+    }
+    .data-table td {
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+    }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table td:first-child { font-weight: 600; color: var(--text); width: 38%; }
+    .no  { color: var(--green); font-weight: 700; }
+    .opt { color: var(--amber); font-weight: 700; }
+
+    /* ── CONTACT CARD ── */
+    .contact-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      box-shadow: 0 1px 4px rgba(0,0,0,.06);
+      margin-top: 14px;
+    }
+    .contact-card a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .contact-card a:hover { text-decoration: underline; }
+
+    /* ── BACK LINK ── */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: .88rem;
+      font-weight: 600;
+      margin-bottom: 28px;
+    }
+    .back-link:hover { text-decoration: underline; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      font-size: .82rem;
+      color: var(--muted);
+      padding: 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── i18n ── */
+    [data-lang]          { display: none; }
+    [data-lang].visible  { display: block; }
+    span[data-lang]      { display: none; }
+    span[data-lang].visible { display: inline; }
+  </style>
+</head>
+<body>
+
+<div id="lang-bar">
+  <button onclick="setLang('en')" id="btn-en" class="active">🇺🇸 EN</button>
+  <button onclick="setLang('fr')" id="btn-fr">🇫🇷 FR</button>
+</div>
+
+<header>
+  <div class="shield">🛡️</div>
+  <h1>
+    <span data-lang="en" class="visible">Privacy Policy</span>
+    <span data-lang="fr">Politique de confidentialité</span>
+  </h1>
+  <p class="sub">MemoryTrack</p>
+  <div class="last-updated">
+    <span data-lang="en" class="visible">Last updated: March 2026</span>
+    <span data-lang="fr">Dernière mise à jour : mars 2026</span>
+  </div>
+</header>
+
+<main>
+
+  <!-- Back link -->
+  <a class="back-link" href="index.html">
+    &#8592; <span data-lang="en" class="visible">Back to Support</span><span data-lang="fr">Retour au support</span>
+  </a>
+
+  <!-- TL;DR Summary -->
+  <div class="summary-banner">
+    <h2>
+      <span data-lang="en" class="visible">&#9997;&#65039; Summary (plain language)</span>
+      <span data-lang="fr">&#9997;&#65039; Résumé (langage simple)</span>
+    </h2>
+    <div data-lang="en" class="visible">
+      <ul>
+        <li><strong>No account, no registration</strong> — MemoryTrack works immediately, anonymously.</li>
+        <li><strong>No personal data collected</strong> — we have no servers storing your data.</li>
+        <li><strong>Your data stays in your iCloud</strong> — encrypted, private, controlled by Apple.</li>
+        <li><strong>No advertising, no tracking, no analytics</strong> — zero third-party SDKs.</li>
+        <li><strong>Notifications are optional</strong> — used only for your personal reminders.</li>
+      </ul>
+    </div>
+    <div data-lang="fr">
+      <ul>
+        <li><strong>Aucun compte, aucune inscription</strong> — MemoryTrack fonctionne immédiatement, anonymement.</li>
+        <li><strong>Aucune donnée personnelle collectée</strong> — nous n'avons pas de serveur stockant vos données.</li>
+        <li><strong>Vos données restent dans votre iCloud</strong> — chiffrées, privées, contrôlées par Apple.</li>
+        <li><strong>Aucune publicité, aucun traçage, aucun analytics</strong> — zéro SDK tiers.</li>
+        <li><strong>Les notifications sont optionnelles</strong> — utilisées uniquement pour vos rappels personnels.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 1. Who we are -->
+  <section>
+    <h2>
+      <span data-lang="en" class="visible">Who We Are</span>
+      <span data-lang="fr">Qui sommes-nous</span>
+    </h2>
+    <div data-lang="en" class="visible">
+      <p>MemoryTrack is an iOS application developed by an independent developer (sole developer). This Privacy Policy explains how the application handles your information.</p>
+      <p><strong>Contact:</strong> <a href="mailto:mythadubiz@gmail.com" style="color:var(--accent)">mythadubiz@gmail.com</a></p>
+    </div>
+    <div data-lang="fr">
+      <p>MemoryTrack est une application iOS développée par un développeur indépendant (développeur individuel). Cette politique de confidentialité explique comment l'application traite vos informations.</p>
+      <p><strong>Contact :</strong> <a href="mailto:mythadubiz@gmail.com" style="color:var(--accent)">mythadubiz@gmail.com</a></p>
+    </div>
+  </section>
+
+  <!-- 2. Data collected -->
+  <section>
+    <h2>
+      <span data-lang="en" class="visible">Data We Collect</span>
+      <span data-lang="fr">Données que nous collectons</span>
+    </h2>
+    <div data-lang="en" class="visible">
+      <p><strong>We collect no personal data.</strong> MemoryTrack does not operate any server, database, or backend service. All data you enter in the app (memories, dates, categories) is stored exclusively in your personal Apple iCloud database (CloudKit private database), which only you can access.</p>
+      <table class="data-table">
+        <thead>
+          <tr><th>Data Type</th><th>Collected by us?</th><th>Location</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Memories &amp; events</td><td class="no">&#10007; Never</td><td>Your private iCloud only</td></tr>
+          <tr><td>Name / Email / Phone</td><td class="no">&#10007; Never</td><td>Not collected</td></tr>
+          <tr><td>Location / GPS</td><td class="no">&#10007; Never</td><td>Not collected</td></tr>
+          <tr><td>Usage / analytics</td><td class="no">&#10007; Never</td><td>Not collected</td></tr>
+          <tr><td>Device identifiers</td><td class="no">&#10007; Never</td><td>Not collected</td></tr>
+          <tr><td>Crash reports</td><td class="no">&#10007; Never</td><td>Not collected</td></tr>
+          <tr><td>Notification permission</td><td class="opt">Optional</td><td>On-device only</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div data-lang="fr">
+      <p><strong>Nous ne collectons aucune donnée personnelle.</strong> MemoryTrack n'exploite aucun serveur, base de données ou service back-end. Toutes les données que vous saisissez dans l'application (souvenirs, dates, catégories) sont stockées exclusivement dans votre base de données iCloud personnelle (base privée CloudKit), accessible uniquement par vous.</p>
+      <table class="data-table">
+        <thead>
+          <tr><th>Type de donnée</th><th>Collectée par nous ?</th><th>Emplacement</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Souvenirs &amp; événements</td><td class="no">&#10007; Jamais</td><td>Votre iCloud privé uniquement</td></tr>
+          <tr><td>Nom / Email / Téléphone</td><td class="no">&#10007; Jamais</td><td>Non collecté</td></tr>
+          <tr><td>Localisation / GPS</td><td class="no">&#10007; Jamais</td><td>Non collectée</td></tr>
+          <tr><td>Usage / analytics</td><td class="no">&#10007; Jamais</td><td>Non collectés</td></tr>
+          <tr><td>Identifiants d'appareil</td><td class="no">&#10007; Jamais</td><td>Non collectés</td></tr>
+          <tr><td>Rapports de crash</td><td class="no">&#10007; Jamais</td><td>Non collectés</td></tr>
+          <tr><td>Permission notifications</td><td class="opt">Optionnelle</td><td>Sur l'appareil uniquement</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 3. iCloud -->
+  <section>
+    <h2>
+      <span data-lang="en" class="visible">iCloud &amp; CloudKit</span>
+      <span data-lang="fr">iCloud &amp; CloudKit</span>
+    </h2>
+    <div data-lang="en" class="visible">
+      <p>MemoryTrack uses Apple's CloudKit framework to sync your data across your devices. Your data is stored in your <strong>private CloudKit database</strong>, which means:</p>
+      <p>&#8226; Only you can read or write your data.<br>
+         &#8226; Apple encrypts data in transit and at rest.<br>
+         &#8226; We (the developer) have no access to your iCloud data at any time.<br>
+         &#8226; Your data is governed by <a href="https://www.apple.com/legal/privacy/" target="_blank" style="color:var(--accent)">Apple's Privacy Policy</a>.</p>
+    </div>
+    <div data-lang="fr">
+      <p>MemoryTrack utilise le framework CloudKit d'Apple pour synchroniser vos données entre vos appareils. Vos données sont stockées dans votre <strong>base de données CloudKit privée</strong>, ce qui signifie :</p>
+      <p>&#8226; Seul vous pouvez lire ou écrire vos données.<br>
+         &#8226; Apple chiffre les données en transit et au repos.<br>
+         &#8226; Nous (le développeur) n'avons accès à vos données iCloud à aucun moment.<br>
+         &#8226; Vos données sont régies par la <a href="https://www.apple.com/fr/legal/privacy/" target="_blank" style="color:var(--accent)">Politique de confidentialité d'Apple</a>.</p>
+    </div>
+  </section>
+
+  <!-- 4. Notifications -->
+  <section>
+    <h2>
+      <span data-lang="en" class="visible">Notifications</span>
+      <span data-lang="fr">Notifications</span>
+    </h2>
+    <div data-lang="en" class="visible">
+      <p>MemoryTrack may request permission to send local notifications. This permission is <strong>entirely optional</strong>. If granted, it is used solely to deliver reminders you have personally configured within the app.</p>
+      <p>Notifications are generated and delivered entirely on your device. No notification content is ever sent to our servers, because we have none.</p>
+    </div>
+    <div data-lang="fr">
+      <p>MemoryTrack peut demander l'autorisation d'envoyer des notifications locales. Cette autorisation est <strong>entièrement facultative</strong>. Si elle est accordée, elle est utilisée uniquement pour délivrer les rappels que vous avez personnellement configurés dans l'application.</p>
+      <p>Les notifications sont générées et délivrées entièrement sur votre appareil. Aucun contenu de notification n'est jamais envoyé à nos serveurs, car nous n'en avons pas.</p>
+    </div>
+  </section>
+
+  <!-- 5. Third parties -->
+  <section>
+    <h2>
+      <span data-lang="en" class="visible">Third-Party Services</span>
+      <span data-lang="fr">Services tiers</span>
+    </h2>
+    <div data-lang="en" class="visible">
+      <p>MemoryTrack <strong>does not include</strong> any third-party analytics, advertising, crash reporting, or tracking SDKs.</p>
+      <p>The only external service used is Apple's CloudKit (for iCloud sync), which is governed by Apple's own privacy policies.</p>
+    </div>
+    <div data-lang="fr">
+      <p>MemoryTrack <strong>n'inclut aucun</strong> SDK tiers d'analyse, de publicité, de rapport de crash ou de traçage.</p>
+      <p>Le seul service externe utilisé est CloudKit d'Apple (pour la synchronisation iCloud), régi par les propres politiques de confidentialité d'Apple.</p>
+    </div>
+  </section>
+
+  <!-- 6. Children -->
+  <section>
+    <h2>
+      <span data-lang="en" class="visible">Children's Privacy</span>
+      <span data-lang="fr">Confidentialité des enfants</span>
+    </h2>
+    <div data-lang="en" class="visible">
+      <p>MemoryTrack does not knowingly collect any information from children under 13. Since no personal data is collected by the app at all, there is no data to process regardless of the user's age.</p>
+    </div>
+    <div data-lang="fr">
+      <p>MemoryTrack ne collecte sciemment aucune information auprès d'enfants de moins de 13 ans. Étant donné qu'aucune donnée personnelle n'est collectée par l'application, il n'y a aucune donnée à traiter, quel que soit l'âge de l'utilisateur.</p>
+    </div>
+  </section>
+
+  <!-- 7. Your rights -->
+  <section>
+    <h2>
+      <span data-lang="en" class="visible">Your Rights (GDPR &amp; CCPA)</span>
+      <span data-lang="fr">Vos droits (RGPD &amp; CCPA)</span>
+    </h2>
+    <div data-lang="en" class="visible">
+      <p>Since MemoryTrack collects no personal data on our end, the following rights are automatically satisfied:</p>
+      <p>&#8226; <strong>Right of access</strong> — no data held by us to provide.<br>
+         &#8226; <strong>Right to rectification</strong> — no data held by us to correct.<br>
+         &#8226; <strong>Right to erasure</strong> — no data held by us to delete.<br>
+         &#8226; <strong>Right to portability</strong> — your data is in your iCloud, fully under your control.<br>
+         &#8226; <strong>Right to object</strong> — no processing by us to object to.</p>
+      <p>To delete your MemoryTrack data entirely, simply delete the app and clear its iCloud data from your device's iCloud settings.</p>
+    </div>
+    <div data-lang="fr">
+      <p>MemoryTrack ne collectant aucune donnée personnelle de notre côté, les droits suivants sont automatiquement satisfaits :</p>
+      <p>&#8226; <strong>Droit d'accès</strong> — aucune donnée détenue par nous à fournir.<br>
+         &#8226; <strong>Droit de rectification</strong> — aucune donnée détenue par nous à corriger.<br>
+         &#8226; <strong>Droit à l'effacement</strong> — aucune donnée détenue par nous à supprimer.<br>
+         &#8226; <strong>Droit à la portabilité</strong> — vos données sont dans votre iCloud, entièrement sous votre contrôle.<br>
+         &#8226; <strong>Droit d'opposition</strong> — aucun traitement de notre part auquel s'opposer.</p>
+      <p>Pour supprimer entièrement vos données MemoryTrack, supprimez simplement l'application et effacez ses données iCloud depuis les réglages iCloud de votre appareil.</p>
+    </div>
+  </section>
+
+  <!-- 8. Changes -->
+  <section>
+    <h2>
+      <span data-lang="en" class="visible">Changes to This Policy</span>
+      <span data-lang="fr">Modifications de cette politique</span>
+    </h2>
+    <div data-lang="en" class="visible">
+      <p>We may update this Privacy Policy from time to time. Any changes will be reflected on this page with an updated date. We encourage you to review this page periodically.</p>
+      <p>Continued use of MemoryTrack after changes are posted constitutes your acceptance of the updated policy.</p>
+    </div>
+    <div data-lang="fr">
+      <p>Nous pouvons mettre à jour cette politique de confidentialité de temps à autre. Toute modification sera reflétée sur cette page avec une date de mise à jour. Nous vous encourageons à consulter cette page régulièrement.</p>
+      <p>L'utilisation continue de MemoryTrack après la publication des modifications constitue votre acceptation de la politique mise à jour.</p>
+    </div>
+  </section>
+
+  <!-- 9. Contact -->
+  <section>
+    <h2>
+      <span data-lang="en" class="visible">Contact Us</span>
+      <span data-lang="fr">Nous contacter</span>
+    </h2>
+    <div class="contact-card">
+      <div data-lang="en" class="visible">
+        <p>For any questions or concerns regarding this Privacy Policy, please contact us:</p>
+        <p style="margin-top:10px"><strong>Email:</strong> <a href="mailto:mythadubiz@gmail.com">mythadubiz@gmail.com</a><br>
+        <strong>Support page:</strong> <a href="index.html">mythadubiz.github.io/memorytrack-support</a></p>
+      </div>
+      <div data-lang="fr">
+        <p>Pour toute question ou préoccupation concernant cette politique de confidentialité, veuillez nous contacter :</p>
+        <p style="margin-top:10px"><strong>Email :</strong> <a href="mailto:mythadubiz@gmail.com">mythadubiz@gmail.com</a><br>
+        <strong>Page de support :</strong> <a href="index.html">mythadubiz.github.io/memorytrack-support</a></p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  &copy; 2026 MemoryTrack &middot;
+  <span data-lang="en" class="visible">Independent Developer</span>
+  <span data-lang="fr">Développeur indépendant</span>
+</footer>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      el.classList.toggle('visible', el.dataset.lang === lang);
+    });
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+    document.documentElement.lang = lang;
+  }
+  const browserLang = navigator.language.startsWith('fr') ? 'fr' : 'en';
+  setLang(browserLang);
+</script>
+</body>
+</html>
